@@ -59,7 +59,7 @@ function Header() {
                                 src={session.user.image} onClick={signOut} />
                         </>
                     ) : (
-                        <button onClick={()=>router.push('/auth/signin')}>Sign in</button>
+                        <button onClick={signIn}>Sign in</button>
                     )
                     }
 
