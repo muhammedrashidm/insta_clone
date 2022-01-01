@@ -9,4 +9,10 @@
     .btn{
         @apply h-7 hover:scale-125 transition-all duration-150 ease-out cursor-pointer;
     }
+
+    .own{
+        @apply cursor-pointer right-0;
+        right: 0;
+    }
+
 }

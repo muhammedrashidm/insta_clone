@@ -4,6 +4,11 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {},
+
+    fontSize: {
+      xsm: ['10px', '10px'],
+
+    }
   },
   variants: {
     extend: {},

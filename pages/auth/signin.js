@@ -10,7 +10,9 @@ export default function SignIn({ providers }) {
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1024px-Instagram_logo.svg.png" alt="rasd-Instagram" className="w-64 mb-4" />
                 <p>rasd_insta Clone Next js</p>
                 <div className="mt-40">
-
+                    {/* <button onClick={() => signIn("google", { callbackUrl: '/' })} className=" p-3 bg-blue-500 rounded-lg text-white">
+                        Sign in with Google
+                    </button> */}
                     {Object.values(providers).map((provider) => (
                         <div key={provider.name}>
                             <button onClick={() => signIn(provider.id, { callbackUrl: '/' })} className=" p-3 bg-blue-500 rounded-lg text-white">

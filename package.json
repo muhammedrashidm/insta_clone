@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev ",
     "build": "next build",
     "start": "next start"
   },
@@ -9,15 +9,25 @@
     "@headlessui/react": "^1.4.2",
     "@heroicons/react": "^1.0.5",
     "@tailwindcss/forms": "^0.3.4",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
     "faker": "^5.5.3",
     "firebase": "^9.4.1",
+    "javascript-time-ago": "^2.3.10",
     "moment": "^2.29.1",
+    "mongoose": "^6.0.14",
     "next": "latest",
     "next-auth": "4.0.0-beta.7",
+    "next-auth-client": "^1.5.0",
+    "nodemon": "^2.0.15",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-icons": "^4.3.1",
     "react-moment": "^1.1.1",
+    "react-time-ago": "^7.1.3",
     "recoil": "^0.5.2",
+    "socket.io": "^4.4.0",
+    "socket.io-client": "^4.4.0",
     "tailwind-scrollbar-hide": "^1.1.5"
   },
   "devDependencies": {

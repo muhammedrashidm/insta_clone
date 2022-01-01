@@ -48,16 +48,53 @@ function Modal() {
 
         })
 
-        console.log("new doc added", docRef.id)
+
 
         const imageRef = ref(storage, `posts/${docRef.id}/image`);
 
         await uploadString(imageRef, selectedFile, "data_url").then(async (snapshot) => {
-            console.log("image uploaded", snapshot)
+
             const downloadUrl = await getDownloadURL(imageRef)
-            console.log("download url", downloadUrl)
+
             await updateDoc(doc(db, 'posts', docRef.id), {
                 image: downloadUrl
+            })
+
+        })
+
+        setOpen(false)
+        setLoading(false)
+        setSelectedFile(null)
+    }
+
+
+    const uploadStory = async () => {
+
+        if (loading) return
+
+
+        setLoading(true);
+
+        // create a post add to firestore posts collection
+        //get the post id
+        //upload image to firebase storage with post id
+        // get a download url from firebase storage and update to post with image
+
+        const docRef = await addDoc(collection(db, 'stories'), {
+            username: session.user.username,
+            userId: session.user.uid,
+            profileImage: session.user.image,
+            timeStamp: serverTimestamp(),
+
+        })
+
+
+        const imageRef = ref(storage, `stories/${docRef.id}/image`);
+
+        await uploadString(imageRef, selectedFile, "data_url").then(async (snapshot) => {
+            const downloadUrl = await getDownloadURL(imageRef)
+            await updateDoc(doc(db, 'stories', docRef.id), {
+                media: downloadUrl
             })
 
         })
@@ -150,7 +187,12 @@ function Modal() {
                                 <button onClick={uploadPost} disabled={!selectedFile || loading} type="button" className="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium
                             text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:text-sm disabled:bg-gray-300
                             disabled:cursor-not-allowed disabled:hover:bg-gray-300" >
-                                    {loading ? "uploading" : "Upload Post"}
+                                    {loading ? "uploading" : "Upload As Post"}
+                                </button>
+                                <button onClick={uploadStory} disabled={!selectedFile || loading} type="button" className="mt-5 inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium
+                            text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-800 sm:text-sm disabled:bg-gray-300
+                            disabled:cursor-not-allowed disabled:hover:bg-gray-300" >
+                                    {loading ? "uploading" : (<div><p>Upload As Status </p><p className="text-xs text-red-300" >Caption won't Appear</p></div>)}
                                 </button>
 
 
