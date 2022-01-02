@@ -23,7 +23,6 @@ try {
     Message = model('Message')
 } catch (error) {
     Message = model('Message', MessageSchema)
-    console.log(error);
 }
 module.exports = Message
 

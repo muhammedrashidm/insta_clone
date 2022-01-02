@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import { ArrowCircleLeftIcon } from '@heroicons/react/outline'
 import Contact from "./contact";
 import { useSession } from 'next-auth/react'
@@ -8,8 +8,18 @@ import { useRecoilState } from "recoil";
 import { profileRecoilState } from "../../../atoms/modalAtom";
 export default function Drawer({ children, isOpen, setIsOpen }) {
     const { data: session } = useSession()
-    const [profile, setProfile] = useRecoilState(profileRecoilState)
+    const [profile, setProfile]  = useState({})
+    useEffect(() => {
 
+        const getProfile = async () => {
+        if (session) {
+            const docRef = doc(db, "profiles", session.user.uid);
+            const docSnap = await getDoc(docRef);
+            setProfile(docSnap.data())
+        }
+    }
+        getProfile()
+    },[]);
 
     return (
         <main>
