@@ -41,7 +41,7 @@ async function connect() {
             useCreateIndex: true
         }
 
-        cached.promise = mongoose.connect(MONGO_URL, opts).then(mongoose => {
+        cached.promise = mongoose.connect('mongodb+srv://rashid1995:OS8id5Pkt5DCNjFA@cluster0.osbq7.mongodb.net/insta-chat?retryWrites=true&w=majority', opts).then(mongoose => {
             return mongoose
         })
     }
