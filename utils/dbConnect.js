@@ -13,6 +13,7 @@ async function connect() {
     })
     connection.isConnected = db.connections[0].readyState;
     console.log(connection.isConnected);
+    return connection
 }
 
 
