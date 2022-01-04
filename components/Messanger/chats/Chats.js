@@ -11,6 +11,7 @@ function Chats() {
         const fetchChats = async () => {
             const res = await fetch(`/api/messaging/conversation/${session.user?.uid}`)
             const chats = await res.json()
+            console.log(chats)
             setChats(chats.data)
 
 
