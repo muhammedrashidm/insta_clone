@@ -1,52 +1,19 @@
-// /lib/dbConnect.js
-import mongoose from 'mongoose'
 
-/** 
-Source : 
-https://github.com/vercel/next.js/blob/canary/examples/with-mongodb-mongoose/utils/dbConnect.js 
-**/
+import mongoose from 'mongoose';
 
-
-const MONGO_URL = process.env.MONGO_URL
-
-if (!MONGO_URL) {
-    throw new Error(
-        'Please define the MONGO_URL environment variable inside .env.local'
-    )
-}
-
-/**
- * Global is used here to maintain a cached connection across hot reloads
- * in development. This prevents connections growing exponentially
- * during API Route usage.
- */
-let cached = global.mongoose
-
-if (!cached) {
-    cached = global.mongoose = { conn: null, promise: null }
-}
+const connection = {};
 
 async function connect() {
-    if (cached.conn) {
-        return cached.conn
+    if (connection.isConnected) {
+        return
     }
-
-    if (!cached.promise) {
-        const opts = {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-            bufferCommands: false,
-            bufferMaxEntries: 0,
-            useFindAndModify: true,
-            useCreateIndex: true
-        }
-
-        cached.promise = mongoose.connect('mongodb+srv://rashid1995:OS8id5Pkt5DCNjFA@cluster0.osbq7.mongodb.net/insta-chat?retryWrites=true&w=majority', opts).then(mongoose => {
-            return mongoose
-        })
-    }
-    cached.conn = await cached.promise
-    return cached.conn
+    const db = await mongoose.connect(process.env.MONGO_URL, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    })
+    connection.isConnected = db.connections[0].readyState;
+    console.log(connection.isConnected);
 }
 
-export default connect
+
+export default connect;
