@@ -15,7 +15,7 @@ export default function SignIn({ providers }) {
                     </button> */}
                     {Object.values(providers).map((provider) => (
                         <div key={provider.name}>
-                            <button onClick={() => signIn(provider.id, { callbackUrl: '/' })} className=" p-3 bg-blue-500 rounded-lg text-white">
+                            <button onClick={() => signIn(provider.id, { callbackUrl: 'https://insta.muhammedrashid.me/' })} className=" p-3 bg-blue-500 rounded-lg text-white">
                                 Sign in with {provider.name}
                             </button>
                         </div>
