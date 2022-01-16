@@ -11,11 +11,6 @@ export default NextAuth({
 
         // ...add more providers here
     ],
-
-    // pages: {
-    //     signIn: "/auth/signin",
-
-    // },
     callbacks: {
         async session({ session, token, user }) {
             session.user.username = session.user.name.split(" ").join("_").toLocaleLowerCase();
@@ -27,3 +22,4 @@ export default NextAuth({
     secret: process.env.SECRET,
 
 })
+

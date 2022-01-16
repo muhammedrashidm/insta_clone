@@ -114,8 +114,8 @@ function Post({ id, username, userImg, img, caption }) {
             {/* comments */}
             {comments?.length > 0 && (
                 <div className="ml-10 h-20 overflow-y-scroll scrollbar-thumb-black scrollbar-thin">
-                    {comments.map((comment) => (
-                        <div className="flex items-center justify-between p-2">
+                    {comments.map((comment,index) => (
+                        <div key={index} className="flex items-center justify-between p-2">
                             <div className="flex justify-start items-center">
                                 <img src={comment.data().profileImage} className="rounded-full h-12 w-12 object-cover border p-1 mr-3" />
                                 <p className=" font-semibold">{comment.data().username}</p>
