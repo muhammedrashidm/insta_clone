@@ -26,7 +26,7 @@ export default function Drawer({ children, isOpen, setIsOpen }) {
 
             <section
                 className={
-                    " ml-0 left-0 w-1/5 max-w-sm  absolute bg-white h-full shadow-xl delay-400 duration-500 ease-in-out transition-all transform  overflow-y-scroll" +
+                    "z-40 ml-0 left-0 w-1/5 max-w-sm  absolute bg-white h-full shadow-xl delay-400 duration-500 ease-in-out transition-all transform  overflow-y-scroll" +
                     (isOpen ? " translate-x-0 " : " -translate-x-full ")
                 }
             >

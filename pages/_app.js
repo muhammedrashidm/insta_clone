@@ -15,8 +15,8 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
 
 
 
-  const socket = io("https://morning-brook-51887.herokuapp.com")
-  console.log(socket)
+  const socket = io('http://localhost:3000')
+  
 
   return (
 
