@@ -47,8 +47,8 @@ function Header() {
 
                     {session ? (
                         <>
-                            <div className="relative navBtn">
-                                <PaperAirplaneIcon className=" navBtn rotate-45" onClick={() => router.push('/Messenger')} />
+                            <div className="relative navBtn"onClick={() => router.push('/Messenger')}>
+                                <PaperAirplaneIcon className=" navBtn rotate-45"  />
                                 <div className="absolute -top-2 -right-1 text-xs w-5 h-5 bg-red-500 rounded-full flex items-center justify-center animate-pulse text-white ">3</div>
                             </div>
                             <PlusCircleIcon onClick={() => setOpen(true)} className=" navBtn" />

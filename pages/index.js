@@ -35,11 +35,11 @@ export default function Home() {
             email: session.user.email,
             username: session.user.username,
             photoURL: session.user.image,
-
+            followers: [],
+            followings: [],
           }).then(async () => {
             const docSnap = await getDoc(docRef)
             setProfile(docSnap.data())
-
           })
 
 
