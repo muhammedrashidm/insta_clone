@@ -10,7 +10,7 @@
 - heroicons as icon package
 - WebRTC 
 
-#features
+# Features
 
 - posts
 - like,comment on post
